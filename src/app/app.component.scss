@@ -1,0 +1,56 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+.landingToolbar {
+  background-color: tomato;
+  height: 4em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    height: 3.5em;
+  }
+}
+
+.artAndFormsWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.abc {
+  background-color: lightsteelblue;
+}
+
+.signInOrUp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60vw;
+  height: 80vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.signy1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2em 4em 0;
+  background-color: lightsteelblue;
+  padding: 2em;
+  border-radius: 5px;
+}
+.signy2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1em 4em;
+  background-color: lightsteelblue;
+  padding: 2em;
+  border-radius: 5px;
+}
+.sword {
+  height: 90vh;
+  border: none;
+}
