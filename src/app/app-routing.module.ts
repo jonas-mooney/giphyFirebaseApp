@@ -1,19 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import {HomeComponent} from "./home/home.component";
+import {SearchComponent} from "./search/search.component";
+import {FavoritesComponent} from "./favorites/favorites.component";
+import {LoginComponent} from "./login/login.component";
 
 const routes: Routes = [
-  { path: '/', component:  },
-  { path: 'hero/:id',      component: HeroDetailComponent },
+  { path: '', component: LoginComponent },
+  { path: 'trending', component: HomeComponent },
   {
-    path: 'heroes',
-    component: HeroListComponent,
-    data: { title: 'Heroes List' }
+    path: 'search',
+    component: SearchComponent,
   },
-  { path: '',
-    redirectTo: '/heroes',
-    pathMatch: 'full'
-  },
-  { path: '**', component: PageNotFoundComponent }
+  { path: 'favorites',
+    component: FavoritesComponent,
+  }
 ];
 
 @NgModule({

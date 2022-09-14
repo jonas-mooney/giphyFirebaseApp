@@ -1,12 +1,12 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {FirebaseService} from "./services/firebase.service";
+import {FirebaseService} from "../services/firebase.service";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss']
 })
-export class AppComponent implements OnInit{
+export class LoginComponent implements OnInit {
   title = 'giphyFirebaseApp';
   isSignedIn = false
 

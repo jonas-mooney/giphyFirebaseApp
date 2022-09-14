@@ -1,13 +1,12 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {FirebaseService} from "./services/firebase.service";
+import {FirebaseService} from "../services/firebase.service";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: 'app-top-nav',
+  templateUrl: './top-nav.component.html',
+  styleUrls: ['./top-nav.component.scss']
 })
-export class AppComponent implements OnInit{
-  title = 'giphyFirebaseApp';
+export class TopNavComponent implements OnInit {
   isSignedIn = false
 
   @Output() isLogout = new EventEmitter<void>()
@@ -34,6 +33,5 @@ export class AppComponent implements OnInit{
   }
   logout() {
     this.firebaseService.logout()
-    // this.isLogout.emit()
   }
 }

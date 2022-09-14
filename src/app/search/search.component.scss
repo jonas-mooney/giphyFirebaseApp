@@ -1,0 +1,114 @@
+#searchBar {
+  background-color: white;
+  border-radius: 100px;
+  position: fixed;
+  top: 80px;
+  width: 90vw;
+  height: 50px;
+  display: flex;
+  margin: 30px 40px;
+  #searchInput {
+    width: 0px;
+    font-size: 1.5em;
+    border-radius: 100px;
+    padding: 0 0 0 15px;
+    border: none;
+    flex-grow: 2;
+    outline: none;
+    background-color: transparent;
+    font-family: 'Rubik', sans-serif;
+  }
+  #searchButton {
+    align-self: center;
+    $diameter: 42px;
+    margin-right: 4px;
+    width: $diameter;
+    min-width: $diameter;
+    height: $diameter;
+    background-color: white;
+    border-radius: 100px;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    &:hover {
+      background-color: #495057;
+    }
+  }
+}
+
+
+#content {
+  width: auto;
+  background-color: #495057;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 6em;
+  // column-count: 5;
+
+  #contentHeader {
+    color: white;
+    font-size: 4em;
+    // width: 60vw;
+    text-align: center;
+    margin: 50px 20px;
+    font-family: 'Rubik', sans-serif;
+
+    @media (max-width: 400px) {
+      font-size: 2em;
+    }
+  }
+
+  #gifContainer {
+    padding-top: 15px;
+    column-count: 6;
+    margin: 100px 2em 0 2em;
+    padding-bottom: 100px;
+
+    @media (max-width: 1500px) {
+      column-count: 5;
+    }
+    @media (max-width: 1200px) {
+      column-count: 4;
+    }
+    @media (max-width: 1000px) {
+      column-count: 3;
+    }
+    @media (max-width: 800px) {
+      column-count: 2;
+    }
+
+    .gifDiv {
+      position: relative;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      margin-right: 5px;
+      .mainImage {
+        $img-size: 15em;
+        width: 100%;
+        height: auto;
+        border-radius: inherit;
+      }
+      .iconImage {
+        position: absolute;
+        display: none;
+        bottom: 15px;
+        left: 15px;
+        z-index: 123;
+        height: 2em;
+        cursor: pointer;
+      }
+      &:hover {
+        .iconImage {
+          cursor: pointer;
+          display: block;
+        }
+      }
+      @media (hover: none) {
+        .iconImage {
+          display: block;
+        }
+      }
+    }
+  }
+}

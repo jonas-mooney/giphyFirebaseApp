@@ -10,13 +10,21 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatIconModule} from "@angular/material/icon";
 import { SearchComponent } from './search/search.component';
+import {CommonModule} from "@angular/common";
+import { FavoritesComponent } from './favorites/favorites.component';
+import { TopNavComponent } from './top-nav/top-nav.component';
+import { LoginComponent } from './login/login.component';
+import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    SearchComponent
+    SearchComponent,
+    FavoritesComponent,
+    TopNavComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -29,9 +37,11 @@ import { SearchComponent } from './search/search.component';
       messagingSenderId: "33101728903",
       appId: "1:33101728903:web:f92c165caf748ca6877c22"
     }),
+    AngularFirestoreModule,
     BrowserAnimationsModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    CommonModule
   ],
   providers: [FirebaseService],
   bootstrap: [AppComponent]

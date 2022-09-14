@@ -1,0 +1,20 @@
+<div class="artAndFormsWrapper">
+  <iframe class="sword1" scrolling="no" src="https://webstockreview.net/images/sword-clipart-animation-10.gif"></iframe>
+  <div class="signInOrUp">
+    <div class="signy1">
+      <h2>Sign Up</h2>
+      <input type="text" #emailSignup />
+      <input type="text" #passwordSignup />
+      <button (click)="onSignup(emailSignup.value,passwordSignup.value)">Sign Up</button>
+    </div>
+    <hr>
+    <div  class="signy2" *ngIf="!isSignedIn">
+      <h2>Login</h2>
+      <input type="text" #email />
+      <input type="text" #password />
+      <button (click)="onSignin(email.value, password.value)" routerLink="/trending">Sign In</button>
+    </div>
+  </div>
+  <!--  <img class="abc" src="./src/assets/sword.gif">-->
+  <iframe class="sword2" scrolling="no" src="https://webstockreview.net/images/sword-clipart-animation-10.gif"></iframe>
+</div>

@@ -1,0 +1,10 @@
+<mat-toolbar class="landingToolbar">
+  <img src="../assets/golom.png">
+  <h1>GOLOM'S GIFS</h1>
+  <div *ngIf="isSignedIn">
+    <button class="logoutButton" (click)="logout()" routerLink="">Logout</button>
+    <button class="trendingButton" routerLink="/trending">Trending</button>
+    <button class="favoritesButton" routerLink="/favorites">Favorites</button>
+    <button class="searchButton" routerLink="/search">Search</button>
+  </div>
+</mat-toolbar>
