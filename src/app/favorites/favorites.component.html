@@ -1,1 +1,11 @@
-<p>favorites works!</p>
+<div id="content">
+  <h1>Favorites</h1>
+  <div id="gifContainer">
+    <!--    <button (click)="retrieveFavs()">Retrieve</button>-->
+    <div class="gifDiv" *ngFor="let gif of favedGifs">
+      <div class='gifDiv'>
+        <img class='mainImage' src="{{ gif }}">
+        <img class='iconImage' (click)='removeFromFavs(gif)' src='./assets/fullHeart.png'>
+      </div>
+    </div>
+  </div>

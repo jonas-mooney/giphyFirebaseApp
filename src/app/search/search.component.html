@@ -1,3 +1,4 @@
+<h1>Search</h1>
 <div id="searchBar">
   <input #inputBox (keyup.enter)="apiCall(inputBox.value)" id="searchInput" type="text" placeholder="Search for any Gifs!">
   <button (click)="apiCall(inputBox.value)" id="searchButton"><img src="./assets/search.svg"></button>
@@ -7,7 +8,7 @@
     <div class="gifDiv" *ngFor="let gif of searchedGifs">
       <div class='gifDiv'>
         <img class='mainImage' src="{{ gif.images.downsized.url }}">
-        <img class='iconImage' onclick='addToFavs()' src='./assets/hollowHeart.png'>
+        <img class='iconImage' (click)='addToFavs(this.gif.images.downsized.url)' src='./assets/hollowHeart.png'>
       </div>
     </div>
   </div>

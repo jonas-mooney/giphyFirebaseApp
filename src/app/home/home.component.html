@@ -1,12 +1,13 @@
 <div id="content">
+  <h1>Trending</h1>
   <div id="gifContainer">
-    <button (click)="retrieveFavs()">Retrieve</button>
+<!--    <button (click)="retrieveFavs()">Retrieve</button>-->
     <div class="gifDiv" *ngFor="let gif of gifs">
       <div class='gifDiv'>
         <img class='mainImage' src="{{ gif.images.downsized.url }}">
-            <img class='iconImage' (click)='addToFavs(this.gif.images.downsized.url)' src='./assets/hollowHeart.png'>
+            <img class='iconImage' *ngIf="!favedGifs.includes(this.gif.images.downsized.url)" (click)='addToFavs(this.gif.images.downsized.url)' src='./assets/hollowHeart.png'>
+            <img class='iconImage' *ngIf="favedGifs.includes(this.gif.images.downsized.url)" (click)='removeFromFavs(this.gif.images.downsized.url)' src='./assets/fullHeart.png'>
       </div>
     </div>
+  </div>
 </div>
-
-

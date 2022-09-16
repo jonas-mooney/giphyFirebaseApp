@@ -3,6 +3,9 @@ import {FirebaseService} from "../services/firebase.service";
 import axios from 'axios';
 import {CommonModule} from "@angular/common";
 import { AngularFirestore, AngularFirestoreDocument } from "@angular/fire/compat/firestore";
+import {
+  getFirestore, collection, getDocs
+} from "@angular/fire/firestore";
 import {user} from "@angular/fire/auth";
 
 
@@ -15,6 +18,7 @@ import {user} from "@angular/fire/auth";
 export class HomeComponent implements OnInit {
   url = `https://api.giphy.com/v1/gifs/trending?api_key=KkQIVU7CgUTlND28O2bDZveA3Z8Vl1kz&limit=30`;
   gifs = [];
+  favedGifs = [];
   @Output() isLogout = new EventEmitter<void>()
 
   private userRef: AngularFirestoreDocument;
@@ -28,10 +32,17 @@ export class HomeComponent implements OnInit {
     }
 
   ngOnInit(): void {
+    this.db
+      .collection('users')
+      .doc(this.userParsed.uid)
+      .valueChanges()
+      .subscribe((res: any) => {
+        this.favedGifs = res.favedGifs
+      })
+
     axios
       .get('https://api.giphy.com/v1/gifs/trending?api_key=KkQIVU7CgUTlND28O2bDZveA3Z8Vl1kz&limit=30\n')
       .then(response => this.gifs = response.data.data)
-      console.log(this.gifs)
   }
 
   logout() {
@@ -40,14 +51,15 @@ export class HomeComponent implements OnInit {
   }
 
   addToFavs(favedGif) {
-    this.userRef.set({favedGif: 'asdf'})
-    console.log(this.userParsed.uid)
+    this.favedGifs.push(favedGif)
+    this.userRef.set({favedGifs: this.favedGifs})
   }
 
-  retrieveFavs() {
-    const gifData = this.db.doc(`users/${this.userParsed.uid}`).get();
-    console.log(gifData)
+  removeFromFavs(gif) {
+    let index = this.favedGifs.indexOf(gif)
+    this.favedGifs.splice(index, 1)
+    this.userRef.set({favedGifs: this.favedGifs})
+    // console.log('gif to be removed' + ' ' + gif)
   }
 
 }
-

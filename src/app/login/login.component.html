@@ -1,19 +1,26 @@
 <div class="artAndFormsWrapper">
   <iframe class="sword1" scrolling="no" src="https://webstockreview.net/images/sword-clipart-animation-10.gif"></iframe>
-  <div class="signInOrUp">
+  <div *ngIf="!isSignedIn" class="signInOrUp">
     <div class="signy1">
       <h2>Sign Up</h2>
       <input type="text" #emailSignup />
       <input type="text" #passwordSignup />
       <button (click)="onSignup(emailSignup.value,passwordSignup.value)">Sign Up</button>
     </div>
-    <hr>
     <div  class="signy2" *ngIf="!isSignedIn">
       <h2>Login</h2>
       <input type="text" #email />
       <input type="text" #password />
       <button (click)="onSignin(email.value, password.value)" routerLink="/trending">Sign In</button>
     </div>
+  </div>
+  <div *ngIf="isSignedIn" class="signInOrUp">
+    <h1 style="color: white">About GOLLUM</h1>
+    <img class="gman" src="./assets/gollum.png">
+    <p>Gollum is a fictional character in J. R. R. Tolkien's Middle-earth legendarium. He was introduced in the 1937 fantasy novel The Hobbit, and became important in its sequel, The Lord of the Rings. Gollum was a Stoor Hobbit[T 1][T 2] of the River-folk who lived near the Gladden Fields. In The Lord of the Rings it is stated that he was originally known as Sméagol, corrupted by the One Ring, and later named Gollum after his habit of making "a horrible swallowing noise in his throat".[T 3]</p>
+    <p>Sméagol obtained the Ring by murdering his relative Déagol, who found it in the River Anduin. Gollum referred to the Ring as "my precious" or "precious", and it extended his life far beyond natural limits. Centuries of the Ring's influence twisted Gollum's body and mind, and, by the time of the novels, he "loved and hated [the Ring], as he loved and hated himself."[T 4] Throughout the story, Gollum was torn between his lust for the Ring and his desire to be free of it. Bilbo Baggins found the Ring and took it for his own, and Gollum afterwards pursued it for the rest of his life. Gollum finally seized the Ring from Frodo Baggins at the Cracks of Doom in Mount Doom in Mordor, but he fell into the fires of the volcano, where both he and the Ring were destroyed.</p>
+    <p>Commentators have described Gollum as a psychological shadow figure for Frodo and as an evil guide in contrast to the wizard Gandalf, the good guide. They have noted, too, that Gollum is not wholly evil, and that he has a part to play in the will of Eru Iluvatar, the omnipotent god of Middle-earth, necessary to the destruction of the Ring. For Gollum's literary origins, scholars have compared Gollum to the shrivelled hag Gagool in Rider Haggard's 1885 novel King Solomon's Mines and to the subterranean Morlocks in H. G. Wells' 1895 novel The Time Machine.</p>
+    <p>Gollum was voiced by Brother Theodore in Rankin-Bass' animated adaptations of The Hobbit and Return of the King, and by Peter Woodthorpe in Ralph Bakshi's animated film version and the BBC's 1981 radio adaptation of The Lord of the Rings. He was portrayed through motion capture by Andy Serkis in Peter Jackson's Lord of the Rings and The Hobbit film trilogies.</p>
   </div>
   <!--  <img class="abc" src="./src/assets/sword.gif">-->
   <iframe class="sword2" scrolling="no" src="https://webstockreview.net/images/sword-clipart-animation-10.gif"></iframe>

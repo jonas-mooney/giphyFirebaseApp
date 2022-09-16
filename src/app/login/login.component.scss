@@ -52,6 +52,15 @@
   z-index: 1;
 }
 
+p {
+  width: 30vw;
+  color: white;
+}
+
+.gman {
+  width: 30vw;
+}
+
 @media only screen and (max-width: 500px) {
   .sword1 {
     display: none;
