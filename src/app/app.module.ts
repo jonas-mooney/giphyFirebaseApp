@@ -15,6 +15,8 @@ import { FavoritesComponent } from './favorites/favorites.component';
 import { TopNavComponent } from './top-nav/top-nav.component';
 import { LoginComponent } from './login/login.component';
 import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
+import {AuthService} from "./services/google-auth.service";
+import {AngularFireAuthModule} from "@angular/fire/compat/auth";
 
 
 @NgModule({
@@ -24,7 +26,7 @@ import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
     SearchComponent,
     FavoritesComponent,
     TopNavComponent,
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,12 +40,13 @@ import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
       appId: "1:33101728903:web:f92c165caf748ca6877c22"
     }),
     AngularFirestoreModule,
+    AngularFireAuthModule,
     BrowserAnimationsModule,
     MatToolbarModule,
     MatIconModule,
     CommonModule
   ],
-  providers: [FirebaseService],
+  providers: [FirebaseService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

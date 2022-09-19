@@ -27,6 +27,8 @@ export class FavoritesComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    localStorage.setItem('onLoginPage', JSON.stringify(false))
+
     this.db
       .collection('users')
       .doc(this.userParsed.uid)

@@ -23,6 +23,8 @@ export class SearchComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    localStorage.setItem('onLoginPage', JSON.stringify(false))
+
     this.db
       .collection('users')
       .doc(this.userParsed.uid)
@@ -43,6 +45,13 @@ export class SearchComponent implements OnInit {
   addToFavs(favedGif) {
     this.favedGifs.push(favedGif)
     this.userRef.set({favedGifs: this.favedGifs})
+  }
+
+  removeFromFavs(gif) {
+    let index = this.favedGifs.indexOf(gif)
+    this.favedGifs.splice(index, 1)
+    this.userRef.set({favedGifs: this.favedGifs})
+    // console.log('gif to be removed' + ' ' + gif)
   }
 
 }

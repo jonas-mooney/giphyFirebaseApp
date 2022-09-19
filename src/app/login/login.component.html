@@ -1,3 +1,4 @@
+<app-top-nav></app-top-nav>
 <div class="artAndFormsWrapper">
   <iframe class="sword1" scrolling="no" src="https://webstockreview.net/images/sword-clipart-animation-10.gif"></iframe>
   <div *ngIf="!isSignedIn" class="signInOrUp">
@@ -5,13 +6,15 @@
       <h2>Sign Up</h2>
       <input type="text" #emailSignup />
       <input type="text" #passwordSignup />
-      <button (click)="onSignup(emailSignup.value,passwordSignup.value)">Sign Up</button>
+      <button type="button" (click)="onSignup(emailSignup.value,passwordSignup.value)" routerLinkActive="/trending">Sign Up</button>
     </div>
     <div  class="signy2" *ngIf="!isSignedIn">
       <h2>Login</h2>
       <input type="text" #email />
       <input type="text" #password />
       <button (click)="onSignin(email.value, password.value)" routerLink="/trending">Sign In</button>
+      <hr>
+      <button type="button" (click)="onGoogleSignIn()" routerLinkActive="/trending">Sign in with Google</button>
     </div>
   </div>
   <div *ngIf="isSignedIn" class="signInOrUp">

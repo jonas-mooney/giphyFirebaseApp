@@ -33,5 +33,8 @@ export class TopNavComponent implements OnInit {
   }
   logout() {
     this.firebaseService.logout()
+    if (localStorage.getItem('onLoginPage') == 'true') {
+      window.location.reload()
+    }
   }
 }

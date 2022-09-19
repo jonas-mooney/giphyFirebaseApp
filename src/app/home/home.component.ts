@@ -16,6 +16,7 @@ import {user} from "@angular/fire/auth";
 })
 
 export class HomeComponent implements OnInit {
+
   url = `https://api.giphy.com/v1/gifs/trending?api_key=KkQIVU7CgUTlND28O2bDZveA3Z8Vl1kz&limit=30`;
   gifs = [];
   favedGifs = [];
@@ -32,6 +33,8 @@ export class HomeComponent implements OnInit {
     }
 
   ngOnInit(): void {
+    localStorage.setItem('onLoginPage', JSON.stringify(false))
+
     this.db
       .collection('users')
       .doc(this.userParsed.uid)
@@ -41,7 +44,7 @@ export class HomeComponent implements OnInit {
       })
 
     axios
-      .get('https://api.giphy.com/v1/gifs/trending?api_key=KkQIVU7CgUTlND28O2bDZveA3Z8Vl1kz&limit=30\n')
+      .get('https://api.giphy.com/v1/gifs/trending?api_key=KkQIVU7CgUTlND28O2bDZveA3Z8Vl1kz&limit=30&rating=g\n')
       .then(response => this.gifs = response.data.data)
   }
 

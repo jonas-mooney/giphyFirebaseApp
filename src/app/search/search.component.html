@@ -1,3 +1,4 @@
+<app-top-nav></app-top-nav>
 <h1>Search</h1>
 <div id="searchBar">
   <input #inputBox (keyup.enter)="apiCall(inputBox.value)" id="searchInput" type="text" placeholder="Search for any Gifs!">
@@ -8,7 +9,8 @@
     <div class="gifDiv" *ngFor="let gif of searchedGifs">
       <div class='gifDiv'>
         <img class='mainImage' src="{{ gif.images.downsized.url }}">
-        <img class='iconImage' (click)='addToFavs(this.gif.images.downsized.url)' src='./assets/hollowHeart.png'>
+        <img class='iconImage' *ngIf="!favedGifs.includes(this.gif.images.downsized.url)" (click)='addToFavs(this.gif.images.downsized.url)' src='./assets/hollowHeart.png'>
+        <img class='iconImage' *ngIf="favedGifs.includes(this.gif.images.downsized.url)" (click)='removeFromFavs(this.gif.images.downsized.url)' src='./assets/fullHeart.png'>
       </div>
     </div>
   </div>
